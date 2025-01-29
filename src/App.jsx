@@ -1,10 +1,13 @@
 
 import Header from './view/componants/Header'
+import { CountProvider } from './view/context/CountContext'
 function App() {
   return (
-    <>
-     <Header />
-    </>
+
+    <CountProvider>
+      <Header />
+    </CountProvider>
+
   )
 }
 

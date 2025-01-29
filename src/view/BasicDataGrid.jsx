@@ -5,16 +5,20 @@ const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'firstName', headerName: 'First name', width: 130 },
   { field: 'lastName', headerName: 'Last name', width: 130 },
-  { field: 'age', headerName: 'Age', type: 'number', width: 90, },
-  /*
+  { field: 'age', headerName: 'Age', type: 'number', width: 90 },
   {
     field: 'fullName',
     headerName: 'Full name',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 170,
-    valueGetter: (params) => `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  }, */
+    valueGetter: (params) => {
+      if (!params || !params.row) { // Check if params or params.row is undefined
+        return ''; // Return an empty string or a suitable default value
+      }
+      return `${params.row.firstName || ''} ${params.row.lastName || ''}`;
+    },
+  },
 ];
 
 const rows = [
@@ -26,19 +30,21 @@ const rows = [
 ];
 
 export default function BasicDataGrid() {
-  const [rowsData, setRowsData] = useState(rows);
   const [searchText, setSearchText] = useState('');
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
 
-  const filteredRows = rowsData.filter((row) => {
-    return (
-      row.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
-      row.lastName.toLowerCase().includes(searchText.toLowerCase())
-    );
-  });
+  const filteredRows = rows.filter((row) => {
+      const firstName = row.firstName || '';
+      const lastName = row.lastName || '';
+      return (
+        firstName.toLowerCase().includes(searchText.toLowerCase()) ||
+        lastName.toLowerCase().includes(searchText.toLowerCase())
+      );
+    });
+
 
   return (
     <div style={{ height: 400, width: '100%' }}>
@@ -55,7 +61,7 @@ export default function BasicDataGrid() {
         rowsPerPageOptions={[5, 10]}
         checkboxSelection
         onSelectionModelChange={(newSelectionModel) => {
-          // do something with new selection model
+          // Handle selection changes
         }}
       />
     </div>
