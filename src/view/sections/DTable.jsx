@@ -22,8 +22,8 @@ const DTable = () => {
         </tr>
       </thead>
       <tbody>
-        {doctors.map((doctor) => (
-          <tr key={doctor.id}>
+        {doctors.map((doctor, index) => (
+          <tr key={index}>
             <td>{doctor.name}</td>
             <td>{doctor.mobile}</td>
             <td>{doctor.city}</td>
