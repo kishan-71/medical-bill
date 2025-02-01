@@ -8,6 +8,7 @@ import { CountContext } from "../Context/CountContext";
 import Doctor_crud from "../Doctor_crud";
 import Dashboard from "../Dashboard";
 import Tasks from "../Tasks";
+import StudentManager from "../Student";
 
 const Header = () => {
   const { count } = useContext(CountContext);
@@ -23,6 +24,7 @@ const Header = () => {
           <NavLink to="/basic-data-grid" className="hover:text-gray-300">BasicDataGrid</NavLink>
           <NavLink to="/dashboard" className="hover:text-gray-300">Dashboard</NavLink>
           <NavLink to="/task" className="hover:text-gray-300">Tasks</NavLink>
+          <NavLink to="/student" className="hover:text-gray-300">Student</NavLink>
           <NavLink to="/doctor" className="hover:text-gray-300">Doctor</NavLink> 
         </nav>
       </header>
@@ -34,6 +36,7 @@ const Header = () => {
         <Route path='/basic-data-grid' element={<BasicDataGrid />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/task' element={<Tasks />} />
+        <Route path='/student' element={<StudentManager />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
