@@ -1,4 +1,4 @@
-import DoctorPage from './pages/DoctorPage'
+import DemoPage from './pages/DemoPage'
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <DoctorPage />
+      <DemoPage />
     </>
   )
 }
