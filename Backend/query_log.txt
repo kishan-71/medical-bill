@@ -1,4 +1,0 @@
-[2025-02-13 18:17:03] SQL Query: SELECT * FROM claim_master | Params: []
-[2025-02-13 18:21:16] SQL Query: SELECT * FROM claim_master | Params: []
-[2025-02-13 18:23:25] SQL Query: SELECT * FROM claim_master | Params: []
-[2025-02-13 18:24:34] SQL Query: SELECT * FROM claim_master | Params: []

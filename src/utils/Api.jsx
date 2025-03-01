@@ -18,7 +18,7 @@ const api = axios.create({
 */
 
 const api = axios.create({
-    baseURL: "http://localhost/medical-bill/api/", // Replace with your API endpoint
+    baseURL: "http://localhost/medicalbill/api/", // Replace with your API endpoint
     headers: {
       "Content-Type": "application/json",
     },
@@ -59,7 +59,6 @@ const myApi = async (method, endpoint, { data = null, params = {}, customHeaders
             params,
             headers: customHeaders,
         });
-
         return {
             data: response.data,
             status: response.status,

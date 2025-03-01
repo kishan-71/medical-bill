@@ -5,7 +5,7 @@ import Form from "../components/Form";
 import { initialLoginFormState, LoginFormFields, loginFormButton } from "../constants/AuthConst";
 
 const LoginPage = () => {
-    const {formData, loading,  handleChange, handleSubmit,  } = useLogin(initialLoginFormState, "login.php");
+    const {formData,  handleChange, handleLogin,  } = useLogin(initialLoginFormState, "user.php");
 
     const formFields = LoginFormFields(formData, handleChange);
     const formButtons = loginFormButton();
@@ -16,7 +16,7 @@ const LoginPage = () => {
                 <div className="flex justify-center">
                     <h2 className="text-2xl font-bold m-2 text-gray-400">Please Login Using ID Password</h2>
                 </div>
-                <Form onSubmit={handleSubmit} fields={formFields} buttons={formButtons} />
+                <Form onSubmit={handleLogin} fields={formFields} buttons={formButtons} />
             </div>
         </div>
     );

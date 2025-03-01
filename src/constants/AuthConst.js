@@ -1,10 +1,10 @@
 // DoctorConst.js
-export const initialLoginFormState = {userId: "", password: "", };
+export const initialLoginFormState = {username: "", password: "", };
 export const LoginFormFields = (formData, onChange) => [
     {
-      label: "User ID",
+      label: "username",
       type: "text",
-      name: "name",
+      name: "username",
       value: formData.name,
       onChange,
       placeholder: "Enter User ID",
