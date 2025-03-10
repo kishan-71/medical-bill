@@ -34,7 +34,7 @@ const DemoPage = () => {
           <IoMdAdd className="inline-block mr-1" />Add User</button>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal} title={editItem ? "Edit Record" : "Add Record"}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title={editItem ? "Edit Record" : "Add Record"} >
           <Form onSubmit={handleSubmit} fields={formFields} buttons={buttons} />
       </Modal>
 

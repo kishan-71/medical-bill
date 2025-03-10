@@ -2,7 +2,7 @@ import React from "react";
 import Label from "./Label";
 import Input from "./Input";
 
-const FormInput = ({ label, flex, type, name, value, onChange, placeholder }) => {
+const FormInput = ({ label, flex, type, name, value, onChange, placeholder, accept }) => {
   return (
     <div
       className={`p-1 w-full ${
@@ -16,6 +16,7 @@ const FormInput = ({ label, flex, type, name, value, onChange, placeholder }) =>
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        accept={accept}
       />
     </div>
   );

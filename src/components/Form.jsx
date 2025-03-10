@@ -16,6 +16,7 @@ const Form = ({ onSubmit, fields, buttons }) => {
             value={field.value}
             onChange={field.onChange}
             placeholder={field.placeholder}
+            accept={field.accept} // Pass accept
           />
         ))}
       </div>

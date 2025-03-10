@@ -10,12 +10,15 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
   return (
     <header className="sticky top-0 z-50 bg-gray-800 shadow-lg p-3 flex items-center justify-between">
       <div className="flex items-center space-x-4">
-        <button onClick={toggleSidebar}
-          className="text-white hover:text-gray-300 focus:outline-none" >
-          {isSidebarOpen ? <FaAlignRight size={24} /> : <FaBars size={24} />}
-        </button>
-        <h1 className="text-2xl font-bold text-white">Demo CRUD</h1>
-      </div>
+        {location.pathname === "/medical-bill/login" 
+          ? null 
+          : <button onClick={toggleSidebar}
+              className="text-white hover:text-gray-300 focus:outline-none" >
+              {isSidebarOpen ? <FaAlignRight size={24} /> : <FaBars size={24} />}
+            </button> 
+        }
+        <h1 className="text-2xl font-bold text-white">Demo CRUD</h1> 
+      </div> 
       
       {location.pathname === "/medical-bill/login" ? 
       <button onClick={() => navigate("/")} 
