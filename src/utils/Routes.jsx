@@ -12,6 +12,7 @@ const SidebarItems = [
   { name: "Home", path: "/" },
   { name: "Claim Master", path: "/claim-master" },
   { name: "Demo Page", path: "/demo-page" },
+  { name: "Claim Master", path: "/claim-master" },
   { name: "Doctors", path: "/doctor-page" },
   { name: "Bill Register", path: "/" },
   { name: "Doctor Forwarding", path: "/" },
@@ -26,6 +27,7 @@ const MyRoutes = () => {
             <Route index element={<HomePage />} />
             <Route path="claim-master" element={<ClaimMaster />} />
             <Route path="demo-page" element={<DemoPage />} />
+            <Route path="claim-master" element={<ClaimMaster />} />
             <Route path="doctor-page" element={<DoctorPage />} />
             <Route path="login" element={<LoginPage />} />
           </Route>

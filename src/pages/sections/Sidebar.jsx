@@ -9,13 +9,13 @@ const Sidebar = ({ isSidebarOpen }) => {
         isSidebarOpen ? "block" : "hidden"
       }`}
     >
-      <h2 className="text-xl font-bold text-white mb-2">Sidebar</h2>
-      <ul className="space-y-2">
+      <h2 className="text-xl font-bold text-white mb-1">Sidebar</h2>
+      <ul className="space-y-1">
         {SidebarItems.map((item, index) => (
           <li key={index} className="text-gray-300">
             <Link
               to={item.path}
-              className={`block p-2 rounded-lg text-lg hover:bg-gray-700 ${
+              className={`block p-1 rounded-lg text-lg hover:bg-gray-700 ${
                 location.pathname === item.path ? "bg-gray-600 text-white" : "" // Apply active style
               }`}
             >
