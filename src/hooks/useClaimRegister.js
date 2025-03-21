@@ -2,9 +2,7 @@
 import { useState, useEffect } from "react";
 import { myApi } from "../utils/Api";
 
-const useCrud = (initialFormState, endpoint) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDataViewOpen, setIsDataViewOpen] = useState(false);
+const useClaimRegister = (initialFormState, endpoint) => {
   const [isDataFormOpen, setIsDataFormOpen] = useState(false);
   const [data, setData] = useState([]);
   const [editItem, setEditItem] = useState(null);
@@ -29,38 +27,27 @@ const useCrud = (initialFormState, endpoint) => {
     return response.data;
   };
 
+  const fetchSingleRow = async (claim_no) => {
+    setLoading(true);
+    try {
+      const response = await myApi("GET", "claim_master.php", {
+        params: { claim_no }, // Corrected syntax
+      });
+  
+      if (response.error) throw response.error;
+      return response.data || null;
+    } catch (error) {
+      console.error("Error fetching claim:", error);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   const updateData = async (id, data) => {
     const response = await myApi("PUT", `${endpoint}?id=${id}`, { data });
     if (response.error) throw response.error;
     return response.data;
-  };
-
-  const deleteData = async (id) => {
-    const response = await myApi("DELETE", `${endpoint}?id=${id}`);
-    if (response.error) throw response.error;
-    return response.data;
-  };
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setEditItem(null);
-    setFormData(initialFormState);
-  };
-
-  const handleEdit = (item) => {
-    setEditItem(item);
-    openModal();
-  };
-
-  const handleDataView = (item) => {
-    setViewItem(item);
-    setIsDataViewOpen(true);
-  };
-
-  const closeDataView = () => {
-    setIsDataViewOpen(false);
-    setViewItem(null);
   };
 
   const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -78,6 +65,12 @@ const useCrud = (initialFormState, endpoint) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const deleteData = async (id) => {
+    const response = await myApi("DELETE", `${endpoint}?id=${id}`);
+    if (response.error) throw response.error;
+    return response.data;
   };
 
   const handleDelete = async (id) => {
@@ -105,23 +98,17 @@ const useCrud = (initialFormState, endpoint) => {
   return {
     data,
     editItem,
-    viewItem,
     formData,
     loading,
-    isModalOpen,
-    isDataViewOpen,
     handleChange,
     handleSubmit,
     handleEdit,
     handleDataView,
     handleDelete,
-    openModal,
-    closeModal,
-    closeDataView,
     isDataFormOpen,
-  handleDataForm,
-  closeDataForm,
+    handleDataForm,
+    closeDataForm,
   };
 };
 
-export default useCrud;
+export default useClaimRegister;

@@ -1,4 +1,6 @@
-import { FaHome } from "react-icons/fa";
+import { FaEdit,FaEye } from "react-icons/fa";
+import { CiViewList } from "react-icons/ci";
+import { TiDelete } from "react-icons/ti";
 // DemoConst.js
 export const initialFormState = { name: "", email: "", mobile: "", dob: "", };
 /**
@@ -55,18 +57,28 @@ export const tableCol = {
  * Table actions configuration
  * @param {Function} onEdit - Handler for edit action
  * @param {Function} onDelete - Handler for delete action
- * @returns {Array} Array of action configurations
+ * @returns {Array} Array of action configurations 
  */
-export const tableActions = (onEdit, onDelete) => [
+export const tableActions = (onEdit, onDelete,  onView, onDataFormView,) => [
   {
-    label: <FaHome size={18} />,
+    label: <FaEdit size={24} />,
     action: onEdit,
+    className: "bg-blue-600 hover:bg-blue-800 text-white px-2 py-1 rounded",
+  },
+  {
+    label: <TiDelete size={24} />,
+    action: onDelete,
+    className: "bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded",
+  },
+  {
+    label: <FaEye size={24} />,
+    action: onView,
     className: "bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded",
   },
   {
-    label: "Delete1",
-    action: onDelete,
-    className: "bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded",
+    label: <CiViewList size={24} />,
+    action: onDataFormView,
+    className: "bg-purple-600 hover:bg-purple-800 text-white px-2 py-1 rounded",
   },
 ];
 
