@@ -5,7 +5,7 @@ const Sidebar = ({ isSidebarOpen }) => {
   const location = useLocation(); // Get current location
   return (
     <aside
-      className={`bg-gray-800 w-48 p-2 overflow-y-auto transition-all duration-300 ${
+      className={`bg-gray-800 w-48 p-2 overflow-y-auto transition-all custom-scrollbar duration-300 ${
         isSidebarOpen ? "block" : "hidden"
       }`}
     >
@@ -15,7 +15,7 @@ const Sidebar = ({ isSidebarOpen }) => {
           <li key={index} className="text-gray-300">
             <Link
               to={item.path}
-              className={`block p-1 rounded-lg text-lg hover:bg-gray-700 ${
+              className={`block py-1 px-2 rounded-lg text-lg hover:bg-gray-700 ${
                 location.pathname === item.path ? "bg-gray-600 text-white" : "" // Apply active style
               }`}
             >

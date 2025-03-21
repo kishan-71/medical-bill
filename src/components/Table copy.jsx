@@ -1,3 +1,4 @@
+// Table.jsx
 import React from "react";
 import Button from "./Button";
 
@@ -8,7 +9,10 @@ const Table = ({ headers, rows, actions }) => {
         <thead className="sticky top-0 bg-gray-700 z-10">
           <tr>
             {headers.map((header, index) => (
-              <th key={index} className="p-1 text-left text-lg font-semibold text-gray-300">
+              <th
+                key={index}
+                className="p-1 text-left text-lg font-semibold text-gray-300"
+              >
                 {header}
               </th>
             ))}
@@ -22,32 +26,28 @@ const Table = ({ headers, rows, actions }) => {
         <tbody>
           {rows.length === 0 ? (
             <tr>
-              <td colSpan={headers.length + (actions ? 1 : 0)} className="p-4 text-center text-gray-400">
-                No records found.
-              </td>
-            </tr>
-          ) : (
+              <td colSpan={headers.length + (actions ? 1 : 0)}
+                className="p-4 text-center text-gray-400" >
+                No records found. </td> </tr>) : (
             rows.map((row, rowIndex) => (
               <tr key={rowIndex} className="hover:bg-gray-750 p-1 transition-all">
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="p-1 text-lg text-gray-200 border-t border-gray-700">
-                    {cell}
-                  </td>
-                ))}
+                  <td key={cellIndex}
+                    className="p-1 text-lg text-gray-200 border-t border-gray-700" >
+                    {cell} </td>))}
                 {actions && (
                   <td className="p-1 text-sm text-gray-200 border-t border-gray-700">
                     <div className="flex space-x-2">
                       {actions.map((action, actionIndex) => (
-                        <Button key={actionIndex} onClick={() => action.action(rowIndex)} className={action.className}>
-                          {action.label}
-                        </Button>
+                        <Button key={actionIndex}
+                          onClick={() => action.action(rowIndex)}
+                          className={action.className} >
+                          {action.label} </Button>
                       ))}
                     </div>
                   </td>
-                )}
-              </tr>
-            ))
-          )}
+                )} </tr>
+            )))}
         </tbody>
       </table>
     </div>

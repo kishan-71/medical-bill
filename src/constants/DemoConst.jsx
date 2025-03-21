@@ -1,3 +1,4 @@
+import { FaHome } from "react-icons/fa";
 // DemoConst.js
 export const initialFormState = { name: "", email: "", mobile: "", dob: "", };
 /**
@@ -58,12 +59,12 @@ export const tableCol = {
  */
 export const tableActions = (onEdit, onDelete) => [
   {
-    label: "Edit",
+    label: <FaHome size={18} />,
     action: onEdit,
     className: "bg-green-600 hover:bg-green-800 text-white px-2 py-1 rounded",
   },
   {
-    label: "Delete",
+    label: "Delete1",
     action: onDelete,
     className: "bg-red-600 hover:bg-red-800 text-white px-2 py-1 rounded",
   },

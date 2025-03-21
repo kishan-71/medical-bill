@@ -5,7 +5,7 @@ import Button from "./Button";
 const Form = ({ onSubmit, fields, buttons }) => {
   return (
     <form onSubmit={onSubmit} className="space-y-4 bg-gray-700 p-6 rounded-lg shadow-md">
-      <div className="flex flex-wrap">
+      <div className="flex items-center flex-wrap">
         {fields.map((field, index) => (
           <FormInput
             key={index}
@@ -19,11 +19,11 @@ const Form = ({ onSubmit, fields, buttons }) => {
             accept={field.accept} // Pass accept
           />
         ))}
-      </div>
-      <div className="flex space-x-2 justify-center">
+        <div className="p-2 flex justify-center space-x-4 ">
         {buttons.map((button, index) => (
           <Button
             key={index}
+            flex={button.flex}
             type={button.type}
             onClick={button.onClick}
             className={button.className}
@@ -31,6 +31,7 @@ const Form = ({ onSubmit, fields, buttons }) => {
             {button.label}
           </Button>
         ))}
+        </div>
       </div>
     </form>
   );
