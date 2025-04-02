@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost/medicalbill/api/", // Replace with your API endpoint
+    baseURL: "http://localhost/medical-bill/api/", // Replace with your API endpoint
     headers: {
       "Content-Type": "application/json",
     },
